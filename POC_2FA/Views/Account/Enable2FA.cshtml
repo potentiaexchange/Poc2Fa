@@ -1,0 +1,25 @@
+﻿@{
+    ViewBag.Title = "Test Two-Factor Authentication";
+}
+
+<h2>@ViewBag.Title.</h2>
+<div class="row">
+    <div class="col-md-8">
+        <div class="form-group">
+            <h4><strong>QR Code</strong></h4>
+            <img src="@ViewBag.QrCodeImageUrl" alt="QrCodeImageUrl" style="width:300px;height:300px;">
+        </div>
+        <h4><strong>Manual Setup Code: </strong>@ViewBag.ManualEntryKey</h4>
+        <form action="@Url.Action("VerifyCode","Account")" method="post" class="form-horizontal" role="form">
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Verify code" class="btn btn-default" />
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
